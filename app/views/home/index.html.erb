@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <%= content_for :title, "Read Without Borders"%>
+      <%= content_for :title, "Read Without Borders" %>
+      <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
+  
   <body>
+    <header>
+      <div class="container">
+        <nav class="navbar">
+          <ul>
+            <li><%= link_to "Home", root_path %></li>
+            <li class="dropdown">
+              <button href="#">Categories</button>
+              <div class="dropdown-content">
+                <%= link_to "Category 1", root_path %>
+                <%= link_to "Category 2", root_path %>
+                <%= link_to "Category 3", root_path %>
+              </div>
+            </li>
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <li><%= link_to "Log in", new_user_session_path %></li>
+            <li><%= button_to(
+        "Log Out",
+        destroy_user_session_path,
+        method: :delete )%></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
     <div class="container">
-<%= image_tag "mainImage.png", alt: "Main Image", class: "mainImage" %>
-</div>
-<%= image_tag "flowers.png", alt: "Flowers", class: "flowers" %>
-
+      <%= image_tag "mainImage.png", alt: "Main Image", class: "mainImage" %>
+    </div>
+    <div class="container">
+      <%= image_tag "flowers.png", alt: "Flowers", class: "flowers" %>
+    </div>
+    <script>console.log("Akif Browser Side")</script>
   </body>
-  <script>console.log("Akif Browser Side")</script>
 </html>
